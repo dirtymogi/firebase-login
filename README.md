@@ -14,14 +14,44 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Some points to check
+
+1) After installing the above dependencies, install ng-bootstrap via:
+npm install --save @ng-bootstrap/ng-bootstrap
+
+Once installed you need to import our main module.
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+The only remaining part is to list the imported module in your root module and any additional application modules that make use of the components in this library. The exact method will be slightly different for the root (top-level) module for which you should end up with the code similar to (notice NgbModule.forRoot()):
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+@NgModule({
+  declarations: [AppComponent, ...],
+  imports: [NgbModule.forRoot(), ...],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}
+
+Look details:
+https://ng-bootstrap.github.io/#/home
+
+
+2) File styles.css add
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css';
+
+More details see:
+https://v4-alpha.getbootstrap.com/getting-started/introduction/#quick-start
+
+
+3) Create project and change information id/secrect key about Firebase in this project.
+https://console.firebase.google.com/
+
+4) Create project and change id/secrect key about Facebook in your Firebase account.
+https://developers.facebook.com/
