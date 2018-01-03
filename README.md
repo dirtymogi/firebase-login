@@ -27,10 +27,6 @@ Once installed you need to import our main module.
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-The only remaining part is to list the imported module in your root module and any additional application modules that make use of the components in this library. The exact method will be slightly different for the root (top-level) module for which you should end up with the code similar to (notice NgbModule.forRoot()):
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 @NgModule({
   declarations: [AppComponent, ...],
   imports: [NgbModule.forRoot(), ...],
@@ -52,6 +48,7 @@ https://v4-alpha.getbootstrap.com/getting-started/introduction/#quick-start
 
 3 Create project and change information id/secrect key about Firebase in this project.
 https://console.firebase.google.com/
+
 
 4 Create project and change id/secrect key about Facebook in your Firebase account.
 https://developers.facebook.com/
