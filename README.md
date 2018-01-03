@@ -27,11 +27,13 @@ npm install --save @ng-bootstrap/ng-bootstrap
 Once installed you need to import our main module.
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [AppComponent, ...],
   imports: [NgbModule.forRoot(), ...],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
 
@@ -39,6 +41,7 @@ Look details:
 https://ng-bootstrap.github.io/#/home
 
 2- File styles.css add
+
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css';
 
 More details see:
@@ -48,6 +51,7 @@ https://v4-alpha.getbootstrap.com/getting-started/introduction/#quick-start
 https://console.firebase.google.com/
 
 4- Create project and change id/secrect key about Facebook in your Firebase account.
+
 https://developers.facebook.com/
 
 5- Configure AngularFire in your application
