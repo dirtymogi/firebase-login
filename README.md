@@ -20,13 +20,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Some points to check
 
-1 After installing the above dependencies, install ng-bootstrap via:
+1- After installing the above dependencies, install ng-bootstrap via:
 npm install --save @ng-bootstrap/ng-bootstrap
-
 Once installed you need to import our main module.
-
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 @NgModule({
   declarations: [AppComponent, ...],
   imports: [NgbModule.forRoot(), ...],
@@ -34,21 +31,21 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppModule {
 }
-
 Look details:
 https://ng-bootstrap.github.io/#/home
 
-
-2 File styles.css add
+2- File styles.css add
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css';
-
 More details see:
 https://v4-alpha.getbootstrap.com/getting-started/introduction/#quick-start
 
-
-3 Create project and change information id/secrect key about Firebase in this project.
+3- Create project and change information id/secrect key about Firebase in this project.
 https://console.firebase.google.com/
 
-
-4 Create project and change id/secrect key about Facebook in your Firebase account.
+4- Create project and change id/secrect key about Facebook in your Firebase account.
 https://developers.facebook.com/
+
+5- Configure AngularFire in your application
+npm install firebase angularfire2 --save
+https://github.com/angular/angularfire2
+
