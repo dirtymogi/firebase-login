@@ -62,3 +62,18 @@ npm install firebase angularfire2 --save
 More details see:
 https://github.com/angular/angularfire2
 
+6- Remember You need change information with your data.
+
+export const firebaseConfig = {
+  apiKey: 'your_api',
+  authDomain: 'your_auth',
+  databaseURL: 'your_database_url',
+  storageBucket: 'your_storage',
+  messagingSenderId: 'your_messaging'
+};
+
+7- To solve incompatibility Firebase version, change your package to "firebase": "4.8.0", in package.json 
+and execute again npm install 
+
+https://stackoverflow.com/questions/47927038/cannot-find-module-firebase-app-types-private
+
