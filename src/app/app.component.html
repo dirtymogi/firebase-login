@@ -1,20 +1,85 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-light bg-faded">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      Sample Code Login Facebook or Email in Firebase
+    </a>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div *ngIf="(user | async)?.email" class="row justify-content-center">
+    <div class="media">
+      <img *ngIf="(user | async)?.photoURL" class="d-flex mr-3" width="60" src="{{ (user | async)?.photoURL }}" alt="{{ (user | async)?.displayName }}">
+      <img *ngIf="!(user | async)?.photoURL" class="d-flex mr-3" width="60" src="https://cdn2.iconfinder.com/data/icons/perfect-flat-icons-2/512/User_login_man_profile_account.png" alt="{{ (user | async)?.displayName }}">
+      <div class="media-body">
+        <h5 class="mt-0">{{ (user | async)?.displayName }}</h5>
+        <p class="mt-0">{{ (user | async)?.email }}</p>
+        <button (click)="signOut()" class="btn btn-info">Sign Out</button>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <span *ngIf="!(user | async)?.email">
+    <div class="row col-md-3 col-md-offset-3">
+      <button (click)="loginFacebook()" class="btn btn-block btn-outline-primary">Login com Facebook</button>
+    </div>
+    <div class="row col-md-3 col-md-offset-3">
+      <button (click)="openEmailLogin = !openEmailLogin" class="btn btn-block btn-outline-danger">Login com E-mail</button>
+    </div>
+    <div class="row col-md-3 col-md-offset-3">
+      <button (click)="openEmailCadastro = !openEmailCadastro" class="btn btn-block btn-outline-warning">Cadastro</button>
+    </div>
+    <br/>
+    <div *ngIf="openEmailLogin" class="row col-md-3 col-md-offset-3">
+      <div class="form-group">
+        <input type="email" class="form-control" [(ngModel)]="email" placeholder="E-mail">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password">
+      </div>
+      <button (click)="loginEmail()" class="btn btn-block btn-outline-info">Login</button>
+    </div>
 
+    <div *ngIf="openEmailCadastro" class="row col-md-3 col-md-offset-3">
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" [(ngModel)]="email" placeholder="E-mail">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="urlImagem" placeholder="URL Image">
+      </div>
+      <button (click)="createEmail()" class="btn btn-block btn-outline-info">Send</button>
+    </div>
+
+  </span>
+
+  <span *ngIf="(user | async)?.email">
+    <div class="row col-md-3 col-md-offset-3 justify-content-center">
+      <button (click)="addFacebook()" class="btn btn-block btn-outline-primary">Conectar com Facebook</button>
+    </div>
+    <div class="row col-md-3 col-md-offset-3 justify-content-center">
+      <button (click)="addEmailLogin2 = !addEmailLogin2" class="btn btn-block btn-outline-danger">Conectar com E-mail</button>
+    </div>
+
+    <br/>
+    <div *ngIf="addEmailLogin2" class="row justify-content-center">
+      <div class="form-group">
+        <input type="email" class="form-control" [(ngModel)]="email" placeholder="E-mail">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password">
+      </div>
+      <button (click)="addEmail()" class="btn btn-block btn-outline-info">Entrar</button>
+    </div>
+
+
+
+  </span>
+
+
+
+</div>
